@@ -33,8 +33,8 @@ enum skb_scan_ret
 // 输入零指针则为重置状态。
 inline u_int8_t char_scan(char *data)
 {
-	const char str_ua_head[] = "User-Agent: ", str_ua[] = "XMURP/1.0", str_end[] = "\r\n\r\n";
-	// 不算'\0'，长度分别为12、9、4
+	const char str_ua_head[] = "User-Agent: ", str_ua[] = "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:67.0) Gecko/20100101 Firefox/67.0", str_end[] = "\r\n\r\n";
+	// 不算'\0'，长度分别为12、72、4
 	static enum
 	{
 		nothing_matching,
@@ -96,7 +96,7 @@ inline u_int8_t char_scan(char *data)
 			}
 			else
 			{
-				if(covered_length < 9)
+				if(covered_length < 72)
 					*data = str_ua[covered_length];
 				else
 					*data = ' ';
